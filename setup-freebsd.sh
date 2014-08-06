@@ -20,19 +20,17 @@ $HOME/littlechef/fix new_kitchen || exit 1
 
 cat > $HOME/new_kitchen/littlechef.cfg <<EOF
 [userinfo]
-user = 
-password = 
-keypair-file = 
-ssh-config = sshconfig
+user = root
+password = none
+keypair-file = ~/.ssh/id_ecdsa
 encrypted_data_bag_secret = 
 [kitchen]
 node_work_path = /tmp/chef-solo/
 EOF
 
-cat > $HOME/new_kitchen/sshconfig <<EOF
-Host *
-IdentityFile ~/.ssh/id_ecdsa
-EOF
+if [ ! -e ~/.ssh/id_ecdsa ]; then
+	ssh-keygen -N '' -t ecdsa -b 521 -f ~/.ssh/id_ecdsa
+fi
 
 echo 'You may want to:'
 echo '# set path = ($HOME/littlechef $path)'
