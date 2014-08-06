@@ -26,6 +26,9 @@ from fabric.utils import abort
 from littlechef import cookbook_paths
 from littlechef.exceptions import FileNotFoundError
 
+"""FreeBSD doens't have bash, use /bin/sh"""
+env.shell = "/bin/sh -c"
+
 knife_installed = True
 
 
