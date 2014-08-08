@@ -2,14 +2,16 @@
 # Copyright (c) 2014 John Ko
 
 install_pkg (){
-	pkg-static info $1 > /dev/null 2> /dev/null || pkg-static install -y $1 || exit 1
+	pkg-static info $1 > /dev/null 2> /dev/null || pkg-static install -y $1
 }
 
 for i in git py27-pip py27-fabric py27-Jinja2 ; do
 	install_pkg $i
 done
 
-ln -shf python2.7 /usr/local/bin/python || exit 1
+if [ ! -e /usr/local/bin/python ]; then
+	ln -shf python2.7 /usr/local/bin/python || exit 1
+fi
 
 if [ ! -e $HOME/littlechef/fix ]; then
 	git clone https://github.com/johnko-chef/littlechef-freebsd.git $HOME/littlechef || exit 1
