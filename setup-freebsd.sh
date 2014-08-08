@@ -5,7 +5,7 @@ install_pkg (){
 	pkg-static info $1 > /dev/null 2> /dev/null || pkg-static install -y $1 || exit 1
 }
 
-for i in git py27-pip py27-fabric ; do
+for i in git py27-pip py27-fabric py27-Jinja2 ; do
 	install_pkg $i
 done
 
