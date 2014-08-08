@@ -20,7 +20,7 @@ $HOME/littlechef/fix new_kitchen || exit 1
 
 cat > $HOME/new_kitchen/littlechef.cfg <<EOF
 [userinfo]
-user = root
+user = chef
 keypair-file = ~/.ssh/id_rsa
 encrypted_data_bag_secret = 
 [kitchen]
@@ -33,6 +33,13 @@ if [ ! -e ~/.ssh/id_rsa ]; then
 fi
 
 cat <<EOF
+Prepare node 10.123.234.35:
+# pkg install -y rubygem-chef
+# echo "chef:::::::/usr/home/chef:/bin/sh:" | /usr/sbin/adduser -w no -S -f -
+# passwd chef
+# install -d -o chef -g chef -m 700 /usr/home/chef/.ssh
+# install -o chef -g chef -m 600 /usr/home/chef/.ssh/authorized_keys
+
 You may want to:
 # set path = (\$HOME/littlechef \$path)
 # cd \$HOME/new_kitchen/cookbooks
