@@ -32,8 +32,13 @@ if [ ! -e ~/.ssh/id_rsa ]; then
 	ssh-keygen -N '' -t rsa -b 4096 -f ~/.ssh/id_rsa
 fi
 
-echo 'You may want to:'
-echo '# set path = ($HOME/littlechef $path)'
-echo '# cd $HOME/new_kitchen'
-echo '# echo {} > nodes/10.123.234.35.json'
-echo '# fix node:10.123.234.35 ssh:"uptime"'
+cat <<EOF
+You may want to:
+# set path = (\$HOME/littlechef \$path)
+# cd \$HOME/new_kitchen/cookbooks
+# git clone https://github.com/johnko-chef/motd
+# cd \$HOME/new_kitchen
+# echo '{"name":"base","description":"The base role for all FreeBSD systems.","json_class":"Chef::Role","default_attributes":{},"override_attributes":{},"chef_type":"role","run_list":["recipe[motd]"],"env_run_lists":{}}' > roles/base.json
+# echo '{"run_list":["role[base]"]}' > nodes/10.123.234.35.json
+# fix node:10.123.234.35
+EOF
