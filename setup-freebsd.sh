@@ -37,6 +37,7 @@ Prepare node 10.123.234.35:
 # pkg install -y rubygem-chef
 # echo "chef:::::::/usr/home/chef:/bin/sh:" | /usr/sbin/adduser -w no -S -f -
 # passwd chef
+# chmod 755 /usr/home
 # install -d -o chef -g chef -m 700 /usr/home/chef/.ssh
 # install -o chef -g chef -m 600 ~/.ssh/authorized_keys /usr/home/chef/.ssh/authorized_keys
 
