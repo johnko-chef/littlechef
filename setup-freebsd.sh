@@ -38,7 +38,7 @@ Prepare node 10.123.234.35:
 # echo "chef:::::::/usr/home/chef:/bin/sh:" | /usr/sbin/adduser -w no -S -f -
 # passwd chef
 # install -d -o chef -g chef -m 700 /usr/home/chef/.ssh
-# install -o chef -g chef -m 600 /usr/home/chef/.ssh/authorized_keys
+# install -o chef -g chef -m 600 ~/.ssh/authorized_keys /usr/home/chef/.ssh/authorized_keys
 
 You may want to:
 # set path = (\$HOME/littlechef \$path)
