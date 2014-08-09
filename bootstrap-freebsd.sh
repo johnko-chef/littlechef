@@ -37,7 +37,7 @@ fi
 cat <<EOF
 Prepare node 10.123.234.35:
 # pkg install -y rubygem-chef
-# echo "littlechef:::::::/usr/home/chef:/bin/sh:" | /usr/sbin/adduser -w no -S -f -
+# echo "littlechef:::::::/usr/home/littlechef:/bin/sh:" | /usr/sbin/adduser -w no -S -f -
 # passwd littlechef
 # visudo
 # chmod 755 /usr/home
